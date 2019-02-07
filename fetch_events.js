@@ -8,10 +8,10 @@ async function fetchEvents(options) {
 }
 exports.fetchEvents = fetchEvents;
 function listEvents(auth, options) {
-    const calendar = googleapis_1.google.calendar({ version: "v3", auth });
+    const calendar = googleapis_1.google.calendar({ version: 'v3', auth });
     return new Promise((resolve) => {
         calendar.events.list({
-            calendarId: "primary",
+            calendarId: options.calendarId || 'primary',
             timeMin: (options.startDate || new Date()).toISOString(),
             maxResults: options.limit || 10,
             singleEvents: true,

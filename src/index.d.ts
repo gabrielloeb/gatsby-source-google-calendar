@@ -3,6 +3,7 @@ import "./temporary-types";
 
 export namespace GatsbySourceGoogleCalendar {
   export interface PluginOptions {
+    calendarId?: string;
     credentials?: any;
     credentialsPath?: string;
     credentialsPromise?: Promise<any>

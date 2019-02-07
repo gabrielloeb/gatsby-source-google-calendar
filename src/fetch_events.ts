@@ -1,5 +1,5 @@
-import { google } from "googleapis";
-import { authorize, IAuthorizeOptions } from "./authorize";
+import { google } from 'googleapis';
+import { authorize, IAuthorizeOptions } from './authorize';
 
 import { GatsbySourceGoogleCalendar } from '../src'
 
@@ -9,11 +9,11 @@ export async function fetchEvents(options: IAuthorizeOptions & any): Promise<Gat
 }
 
 export function listEvents(auth: any, options: GatsbySourceGoogleCalendar.PluginOptions): Promise<GatsbySourceGoogleCalendar.GoogleCalendarEvent[]> {
-  const calendar = google.calendar({ version: "v3", auth });
+  const calendar = google.calendar({ version: 'v3', auth });
   return new Promise((resolve) => {
     calendar.events.list(
       {
-        calendarId: "primary",
+        calendarId: options.calendarId || 'primary',
         timeMin: (options.startDate || new Date()).toISOString(),
         maxResults: options.limit || 10,
         singleEvents: true,

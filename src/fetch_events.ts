@@ -15,6 +15,8 @@ export function listEvents(auth: any, options: GatsbySourceGoogleCalendar.Plugin
       {
         calendarId: options.calendarId || 'primary',
         timeMin: (options.startDate || new Date()).toISOString(),
+        // If options.limit > 2500 multiple pages of results
+        // will be returned and must be concatenated.
         maxResults: options.limit || 10,
         singleEvents: true,
         orderBy: 'starttime'

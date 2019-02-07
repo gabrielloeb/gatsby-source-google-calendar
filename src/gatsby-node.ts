@@ -15,6 +15,7 @@ export const sourceNodes = async (gatsby: any, pluginOptions: any) => {
   } = gatsby;
 
   const {
+    calendarId,
     credentials,
     credentialsPath,
     credentialsPromise,
@@ -26,6 +27,7 @@ export const sourceNodes = async (gatsby: any, pluginOptions: any) => {
   } = pluginOptions;
 
   const events = await fetchEvents({
+    calendarId,
     credentials,
     credentialsPath,
     credentialsPromise,

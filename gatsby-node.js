@@ -10,8 +10,9 @@ const { createNodeFactory } = nodeHelpers;
 const EventNode = createNodeFactory("Event");
 exports.sourceNodes = async (gatsby, pluginOptions) => {
     const { actions: { createNode } } = gatsby;
-    const { credentials, credentialsPath, credentialsPromise, token, tokenPath, tokenPromise, limit, startDate } = pluginOptions;
+    const { calendarId, credentials, credentialsPath, credentialsPromise, token, tokenPath, tokenPromise, limit, startDate } = pluginOptions;
     const events = await fetch_events_1.fetchEvents({
+        calendarId,
         credentials,
         credentialsPath,
         credentialsPromise,
